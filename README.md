@@ -1,21 +1,10 @@
-# Machine Learning Engineer Nanodegree
-# Reinforcement Learning
-## Project: Train a Smartcab How to Drive
+# Training a smartcab
+This is the 5th project for the Machine Learning Nanodegree Program. This project uses reinforcement learning, especially Q-learning algorithm to an agent to smartly drive a cab in a simulated Grid Road Network with lights and traffic around. The ultimate goal is to teach the agent to drive both safely (try to avoid traffic violations and accidents) and efficiently (try to reach the destination in time).
 
-### Install
+## Code Usage
+- First download the repository to your desktop and unzip it.
+- Open the ```report.html``` in your browser, where model development results are showned in a HTML file.
+- Alternatively, you can open ```smartcab.ipynb``` in your Jupyter, to re-run the cells (where necessary data and scripts are also included).
 
-This project requires **Python 2.7** with the [pygame](https://www.pygame.org/wiki/GettingStarted
-) library installed
-
-### Code
-
-Template code is provided in the `smartcab/agent.py` python file. Additional supporting python code can be found in `smartcab/enviroment.py`, `smartcab/planner.py`, and `smartcab/simulator.py`. Supporting images for the graphical user interface can be found in the `images` folder. While some code has already been implemented to get you started, you will need to implement additional functionality for the `LearningAgent` class in `agent.py` when requested to successfully complete the project. 
-
-### Run
-
-In a terminal or command window, navigate to the top-level project directory `smartcab/` (that contains this README) and run one of the following commands:
-
-```python smartcab/agent.py```  
-```python -m smartcab.agent```
-
-This will run the `agent.py` file and execute your agent code.
+## License
+This project is licensed under the terms of the **MIT** license.
