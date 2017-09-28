@@ -9,7 +9,7 @@ class LearningAgent(Agent):
     """ An agent that learns to drive in the Smartcab world.
         This is the object you will be modifying. """ 
 
-    def __init__(self, env, learning=False, epsilon=0.9, alpha=0.02):
+    def __init__(self, env, learning=False, epsilon=1, alpha=0.5):
         super(LearningAgent, self).__init__(env)     # Set the agent in the evironment 
         self.planner = RoutePlanner(self.env, self)  # Create a route planner
         self.valid_actions = self.env.valid_actions  # The set of valid actions
@@ -48,7 +48,7 @@ class LearningAgent(Agent):
             self.alpha = 0
             
         else:
-            # self.epsilon -= 0.05
+            # self.epsilon -= self.decay_rate
             self.epsilon = math.exp(-self.alpha*self.trial_number)
             self.trial_number += 1
 
@@ -74,7 +74,7 @@ class LearningAgent(Agent):
         # With the hand-engineered features, this learning process gets entirely negated.
         
         # Set 'state' as a tuple of relevant data for the agent        
-        state = (waypoint, inputs['light'])
+        state = (inputs['light'], waypoint, inputs['oncoming'], inputs['left'])
 
         return state
 
@@ -189,7 +189,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent, epsilon = 1, learning = True)
+    agent = env.create_agent(LearningAgent, learning = True, epsilon = 1, alpha = 0.01)
     
     ##############
     # Follow the driving agent
